@@ -10,7 +10,7 @@
     <p>hello world</p>
     <br>
     <div>Click me!</div>
-</form>
+    </form>
 <script>
 
 const form = document.querySelector("form");
@@ -29,12 +29,15 @@ form.addEventListener("click", function (e) {
 });
 
 function addImageOnClick(e) {
-    let img = document.createElement("img");
-    img.src =
-        "https://digitalnaitik.com/wp-content/uploads/2023/12/why.webp";
-    document.body.appendChild(img);
-
-    e.currentTarget.removeEventListener("click", addImageOnClick);
+    const img = document.querySelector("#img");
+    if (img) {
+        img.remove();
+    } else {
+        const newImg = document.createElement("img");
+        newImg.src = "https://digitalnaitik.com/wp-content/uploads/2023/12/why.webp";
+        newImg.id = "img";
+        document.body.appendChild(newImg);
+    }
 }
 
 const div = document.querySelector("div");
